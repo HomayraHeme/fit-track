@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+ # FitTrack
 
-## Getting Started
+**FitTrack** is a modern fitness tracking web application built with **Next.js**. It allows users to log workouts, track progress, and manage their fitness routines. The app includes authentication and protected routes for a personalized experience.
 
-First, run the development server:
+**Live Demo:** [FitTrack Live](https://fit-track-six-beta.vercel.app)
 
+---
+
+## **Features** ✅
+
+- 🔒 **User Authentication:** Secure login and registration using NextAuth.js.  
+- 📊 **Dashboard:** Personalized dashboard showing workout stats and progress.  
+- 🏋️ **Workout Management:** Add, view, and manage workouts easily.  
+- 📄 **Workout Details:** Detailed view for each workout, including date, type, and duration.  
+- 👤 **Profile Management:** Edit and update your user profile.  
+- 🚫 **Protected Routes:** Only logged-in users can access dashboards, workouts, and profiles.  
+- 📱 **Responsive Design:** Mobile-friendly and works on all devices.  
+- 🎨 **Modern UI:** Built with Tailwind CSS for a clean and attractive interface.  
+
+---
+
+## **Setup & Installation**
+
+### **1. Clone the repository**
 ```bash
+git clone https://github.com/yourusername/fittrack.git
+cd fittrack
+
+---
+## **Install dependencies**
+
+npm install
+# or
+yarn install
+
+---
+## **Create a .env.local file in the root directory and add the following:**
+
+MONGODB_URI=your_mongodb_connection_string
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your_nextauth_secret
+
+---
+## **Run the development server**
 npm run dev
 # or
 yarn dev
+---
+
+Visit http://localhost:3000
+ to see the app.
+
+---
+
+## **Build for production**
+npm run build
+npm start
 # or
-pnpm dev
-# or
-bun dev
-```
+yarn build
+yarn start
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## **Route Summary**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+ | Route            | Method   | Description                                   | Protected |
+| ---------------- | -------- | --------------------------------------------- | --------- |
+| `/`              | GET      | Landing page                                  | No        |
+| `/login`         | GET/POST | User login page                               | No        |
+| `/register`      | GET/POST | User registration page                        | No        |
+| `/dashboard`     | GET      | User dashboard (overview of workouts & stats) | Yes       |
+| `/workouts`      | GET      | List all workouts                             | Yes       |
+| `/workouts/[id]` | GET      | View single workout details                   | Yes       |
+| `/workouts/add`  | GET/POST | Add a new workout                             | Yes       |
+| `/profile`       | GET/POST | View & edit user profile                      | Yes       |
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## **Technologies Used**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-Next.js (App Router)
+-NextAuth.js (Authentication)
+-MongoDB (Database)
+-Tailwind CSS (Styling)
+-React Icons
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## **Future Improvements**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+📸 Add photo uploads for workouts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+🌍 Enable GPS tracking for runs or cycling
+
+🔔 Push notifications for workout reminders
+
+🔍 Advanced filtering and search for workouts
+
