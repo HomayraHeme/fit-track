@@ -1,6 +1,6 @@
  
 
-```` 
+
 # FitTrack
 
 **FitTrack** is a modern fitness tracking web application built with **Next.js**. It allows users to log workouts, track progress, and manage their fitness routines. The app includes authentication and protected routes for a personalized experience.
