@@ -1,4 +1,7 @@
- # FitTrack
+ 
+
+```` 
+# FitTrack
 
 **FitTrack** is a modern fitness tracking web application built with **Next.js**. It allows users to log workouts, track progress, and manage their fitness routines. The app includes authentication and protected routes for a personalized experience.
 
@@ -21,51 +24,55 @@
 
 ## **Setup & Installation**
 
-### ** Clone the repository**
+### **1. Clone the repository**
 ```bash
 git clone https://github.com/yourusername/fittrack.git
 cd fittrack
+````
 
----
-## **Install dependencies**
+### **2. Install dependencies**
 
+```bash
 npm install
 # or
 yarn install
+```
 
----
-## **Create a .env.local file in the root directory and add the following:**
+### **3. Set up environment variables**
 
+Create a `.env.local` file in the root directory and add the following:
+
+```
 MONGODB_URI=your_mongodb_connection_string
 NEXTAUTH_URL=http://localhost:3000
 NEXTAUTH_SECRET=your_nextauth_secret
+```
 
----
-## **Run the development server**
+### **4. Run the development server**
+
+```bash
 npm run dev
 # or
 yarn dev
----
+```
 
-Visit http://localhost:3000
- to see the app.
+Visit [http://localhost:3000](http://localhost:3000) to see the app.
 
----
+### **5. Build for production**
 
-## **Build for production**
+```bash
 npm run build
 npm start
 # or
 yarn build
-yarn start 
+yarn start
+```
 
 ---
 
-
-
 ## **Route Summary**
 
- | Route            | Method   | Description                                   | Protected |
+| Route            | Method   | Description                                   | Protected |
 | ---------------- | -------- | --------------------------------------------- | --------- |
 | `/`              | GET      | Landing page                                  | No        |
 | `/login`         | GET/POST | User login page                               | No        |
@@ -80,21 +87,26 @@ yarn start
 
 ## **Technologies Used**
 
--Next.js (App Router)
--NextAuth.js (Authentication)
--MongoDB (Database)
--Tailwind CSS (Styling)
--React Icons
+* Next.js (App Router)
+* NextAuth.js (Authentication)
+* MongoDB (Database)
+* Tailwind CSS (Styling)
+* React Icons
 
 ---
 
 ## **Future Improvements**
 
-📸 Add photo uploads for workouts
+* 📸 Add photo uploads for workouts
+* 🌍 Enable GPS tracking for runs or cycling
+* 🔔 Push notifications for workout reminders
+* 🔍 Advanced filtering and search for workouts
 
-🌍 Enable GPS tracking for runs or cycling
+---
 
-🔔 Push notifications for workout reminders
+ 
 
-🔍 Advanced filtering and search for workouts
+```
 
+---
+ 
