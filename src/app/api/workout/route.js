@@ -1,9 +1,9 @@
 import { connectToDB } from "@/lib/mongodb";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/route";
+import { ObjectId } from "mongodb";
 
-
-// GET: Fetch all workouts
+// GET: Fetch all workouts (public)
 export async function GET(req) {
     try {
         const db = await connectToDB();
@@ -11,11 +11,11 @@ export async function GET(req) {
         return new Response(JSON.stringify(workouts), { status: 200 });
     } catch (err) {
         console.error("Error fetching workouts:", err);
-        return new Response("Failed to fetch workouts", { status: 500 });
+        return new Response(JSON.stringify({ error: "Failed to fetch workouts" }), { status: 500 });
     }
 }
 
-// POST: Add a new workout (secure, only logged-in user)
+// POST: Add new workout (only logged-in user)
 export async function POST(req) {
     try {
         const session = await getServerSession(authOptions);
@@ -28,7 +28,6 @@ export async function POST(req) {
             return new Response(JSON.stringify({ error: "Missing required fields" }), { status: 400 });
         }
 
-        // Attach the logged-in user's email
         workoutData.userEmail = session.user.email;
 
         const result = await db.collection("workout").insertOne(workoutData);
@@ -39,7 +38,7 @@ export async function POST(req) {
     }
 }
 
-// DELETE: Remove a workout (only if owned by user)
+// DELETE: Delete workout (only owner)
 export async function DELETE(req) {
     try {
         const session = await getServerSession(authOptions);
@@ -52,7 +51,7 @@ export async function DELETE(req) {
         const db = await connectToDB();
         const result = await db.collection("workout").deleteOne({
             _id: new ObjectId(id),
-            userEmail: session.user.email
+            userEmail: session.user.email,
         });
 
         if (result.deletedCount === 0) {
@@ -61,7 +60,7 @@ export async function DELETE(req) {
 
         return new Response(JSON.stringify({ message: "Workout deleted successfully" }), { status: 200 });
     } catch (err) {
-        console.error(err);
+        console.error("Error deleting workout:", err);
         return new Response(JSON.stringify({ error: "Server error" }), { status: 500 });
     }
 }

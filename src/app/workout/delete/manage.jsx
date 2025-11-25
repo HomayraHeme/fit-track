@@ -8,9 +8,10 @@ export default function ManageWorkouts() {
 
     const fetchWorkouts = async () => {
         try {
-            const res = await fetch("/api/workout/users"); // backend route
+            const res = await fetch("/api/workout"); // fetch workouts for logged-in user
+            if (!res.ok) throw new Error("Failed to fetch workouts");
             const data = await res.json();
-            setWorkouts(Array.isArray(data) ? data : []); // ensure it's always an array
+            setWorkouts(Array.isArray(data) ? data : []);
         } catch (err) {
             console.error(err);
             setWorkouts([]);

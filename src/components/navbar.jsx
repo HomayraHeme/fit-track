@@ -80,7 +80,7 @@ export default function Navbar() {
             {menuOpen && (
                 <div className="md:hidden bg-white border-t border-gray-200 px-4 py-4 space-y-2">
                     <Link href="/" className="block hover:text-teal-500">Home</Link>
-                    <Link href="/workouts" className="block hover:text-teal-500">Workouts</Link>
+                    <Link href="/workout" className="block hover:text-teal-500">Workouts</Link>
                     <Link href="/about" className="block hover:text-teal-500">About</Link>
                     <Link href="/contact" className="block hover:text-teal-500">Contact</Link>
 

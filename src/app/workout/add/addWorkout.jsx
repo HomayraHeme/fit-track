@@ -54,7 +54,7 @@ export default function AddWorkoutPage() {
                 imageUrl: "",
             });
 
-            router.push("/workout/manage"); // redirect to manage workouts
+            router.push("/workout/delete"); // redirect to manage workouts
         } catch (err) {
             toast.error(err.message);
         } finally {
