@@ -21,7 +21,7 @@
 
 ## **Setup & Installation**
 
-### **1. Clone the repository**
+### ** Clone the repository**
 ```bash
 git clone https://github.com/yourusername/fittrack.git
 cd fittrack
@@ -57,9 +57,11 @@ npm run build
 npm start
 # or
 yarn build
-yarn start
+yarn start 
 
 ---
+
+
 
 ## **Route Summary**
 
