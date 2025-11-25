@@ -11,11 +11,9 @@
 
 ## **Features** ✅
 
-- 🔒 **User Authentication:** Secure login and registration using NextAuth.js.  
-- 📊 **Dashboard:** Personalized dashboard showing workout stats and progress.  
+- 🔒 **User Authentication:** Secure login and registration using NextAuth.js.   
 - 🏋️ **Workout Management:** Add, view, and manage workouts easily.  
-- 📄 **Workout Details:** Detailed view for each workout, including date, type, and duration.  
-- 👤 **Profile Management:** Edit and update your user profile.  
+- 📄 **Workout Details:** Detailed view for each workout, including date, type, and duration.   
 - 🚫 **Protected Routes:** Only logged-in users can access dashboards, workouts, and profiles.  
 - 📱 **Responsive Design:** Mobile-friendly and works on all devices.  
 - 🎨 **Modern UI:** Built with Tailwind CSS for a clean and attractive interface.  
