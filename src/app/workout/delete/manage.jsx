@@ -8,10 +8,16 @@ export default function ManageWorkouts() {
 
     const fetchWorkouts = async () => {
         try {
-            const res = await fetch("/api/workout/users"); // fetch workouts for logged-in user
+            const res = await fetch("/api/workout/users");
             if (!res.ok) throw new Error("Failed to fetch workouts");
             const data = await res.json();
-            setWorkouts(Array.isArray(data) ? data : []);
+
+
+            const formatted = Array.isArray(data)
+                ? data.map(w => ({ ...w, _id: w._id.toString() }))
+                : [];
+
+            setWorkouts(formatted);
         } catch (err) {
             console.error(err);
             setWorkouts([]);
@@ -46,7 +52,7 @@ export default function ManageWorkouts() {
     return (
         <div className="max-w-5xl mx-auto px-6 py-10">
             <h1 className="text-3xl font-bold text-teal-600 mb-6">Manage Workouts</h1>
-            {Array.isArray(workouts) && workouts.length > 0 ? (
+            {workouts.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {workouts.map(workout => (
                         <div key={workout._id} className="border rounded shadow p-4 flex flex-col">

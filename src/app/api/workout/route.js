@@ -3,13 +3,11 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/route";
 import { ObjectId } from "mongodb";
 
-// 🟢 GET - everyone can see all workouts
 export async function GET() {
     try {
         const db = await connectToDB();
         const workouts = await db.collection("workout").find({}).toArray();
 
-        // ✅ convert ObjectId to string before sending to frontend
         const formatted = workouts.map(w => ({
             ...w,
             _id: w._id.toString(),
@@ -22,7 +20,7 @@ export async function GET() {
     }
 }
 
-// 🟢 POST - only logged-in user can add
+
 export async function POST(req) {
     try {
         const session = await getServerSession(authOptions);
@@ -53,7 +51,6 @@ export async function POST(req) {
     }
 }
 
-// 🟢 DELETE - only logged-in user can delete their own workout
 export async function DELETE(req) {
     try {
         const session = await getServerSession(authOptions);
