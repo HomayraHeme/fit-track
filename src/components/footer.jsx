@@ -5,7 +5,6 @@ export default function Footer() {
         <footer className="bg-gray-900 text-gray-300 pt-14 pb-6 mt-10">
             <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 md:place-items-center">
 
-                {/* --- Brand Info --- */}
                 <div>
 
                     <div className="flex items-center gap-2">
@@ -21,7 +20,7 @@ export default function Footer() {
                 </div>
 
 
-                {/* --- Support --- */}
+
                 <div>
                     <h3 className="text-lg font-semibold text-white mb-4">Support</h3>
                     <ul className="space-y-2 text-gray-400">
@@ -32,7 +31,7 @@ export default function Footer() {
                     </ul>
                 </div>
 
-                {/* --- Social Links --- */}
+
                 <div>
                     <h3 className="text-lg font-semibold text-white mb-4">Follow Us</h3>
                     <p className="text-gray-400 mb-3">Stay connected for daily fitness tips and updates:</p>
@@ -73,7 +72,7 @@ export default function Footer() {
                 </div>
             </div>
 
-            {/* --- Copyright Bottom --- */}
+
             <div className="border-t border-gray-700 mt-10 pt-4 text-center text-gray-500 text-sm">
                 <p>
                     © {new Date().getFullYear()} <span className="text-teal-400 font-semibold">FitTrack</span>.

@@ -1,4 +1,4 @@
-// src/components/CallToAction.jsx
+
 import Link from "next/link";
 
 export default function CallToAction() {

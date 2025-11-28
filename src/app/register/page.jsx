@@ -25,14 +25,14 @@ export default function RegisterPage() {
 
             if (!res.ok) throw new Error(data.message || "Registration failed");
 
-            // Auto login after successful registration
+
             const result = await signIn("credentials", {
                 redirect: false,
                 email,
                 password,
             });
 
-            if (result?.ok) router.push("/"); // Redirect home
+            if (result?.ok) router.push("/");
             else alert("Registered successfully! Please login.");
 
         } catch (err) {

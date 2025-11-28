@@ -26,7 +26,6 @@ export default function Hero() {
     return (
         <section className="flex flex-col md:flex-row items-center justify-between px-6 md:px-20 py-16 bg-gray-50">
 
-            {/* 🏋️ Left Text */}
             <div className="max-w-xl space-y-6">
                 <h1 className="text-4xl md:text-5xl font-extrabold text-teal-600 leading-tight">
                     Track Your Fitness <br /> Stay Motivated 💪
@@ -54,7 +53,6 @@ export default function Hero() {
                 </div>
             </div>
 
-            {/* 🖼️ Right Carousel */}
             <div className="mt-10 md:mt-0 md:w-1/2 flex justify-center">
                 <Slider {...settings} className="w-full max-w-md">
                     {images.map((img, index) => (

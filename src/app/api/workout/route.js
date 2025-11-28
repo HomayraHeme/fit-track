@@ -3,7 +3,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/route";
 import { ObjectId } from "mongodb";
 
-// GET: Fetch all workouts (public)
+
 export async function GET(req) {
     try {
         const db = await connectToDB();
@@ -15,7 +15,7 @@ export async function GET(req) {
     }
 }
 
-// POST: Add new workout (only logged-in user)
+
 export async function POST(req) {
     try {
         const session = await getServerSession(authOptions);
@@ -38,7 +38,7 @@ export async function POST(req) {
     }
 }
 
-// DELETE: Delete workout (only owner)
+
 export async function DELETE(req) {
     try {
         const session = await getServerSession(authOptions);

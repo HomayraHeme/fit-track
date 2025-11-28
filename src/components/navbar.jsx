@@ -22,14 +22,12 @@ export default function Navbar() {
                         </Link>
                     </div>
 
-                    {/* Desktop Menu */}
                     <div className="hidden md:flex space-x-6 items-center">
                         <Link href="/" className="hover:text-teal-500">Home</Link>
                         <Link href="/workout" className="hover:text-teal-500">Workouts</Link>
                         <Link href="/about" className="hover:text-teal-500">About</Link>
                         <Link href="/contact" className="hover:text-teal-500">Contact</Link>
 
-                        {/* Auth Buttons */}
                         {!session ? (
                             <Link href='/login'><button
 
@@ -67,7 +65,6 @@ export default function Navbar() {
                         )}
                     </div>
 
-                    {/* Mobile Menu Button */}
                     <div className="md:hidden flex items-center">
                         <button onClick={toggleMenu}>
                             {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
@@ -76,7 +73,6 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* Mobile Menu */}
             {menuOpen && (
                 <div className="md:hidden bg-white border-t border-gray-200 px-4 py-4 space-y-2">
                     <Link href="/" className="block hover:text-teal-500">Home</Link>

@@ -35,17 +35,17 @@ export const authOptions = {
     secret: process.env.NEXTAUTH_SECRET,
 
     callbacks: {
-        // Called whenever a user signs in
+
         async signIn({ user, account, profile }) {
             if (account.provider === "google") {
                 try {
                     const db = await connectToDB();
                     const users = db.collection("users");
 
-                    // Check if user already exists
+
                     const existingUser = await users.findOne({ email: user.email });
                     if (!existingUser) {
-                        // Create new user in MongoDB
+
                         const result = await users.insertOne({
                             name: user.name,
                             email: user.email,
@@ -57,7 +57,7 @@ export const authOptions = {
                     }
                 } catch (err) {
                     console.error("Error creating Google user:", err);
-                    return false; // Sign-in fails
+                    return false;
                 }
             }
             return true;

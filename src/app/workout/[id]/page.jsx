@@ -22,22 +22,22 @@ export default async function WorkoutPage({ params }) {
 
     return (
         <div className="w-full">
-            {/* Image Banner with Black Overlay and Centered Title */}
+
             <div className="relative w-full h-[400px] md:h-[500px]">
                 <img
                     src={workout.imageUrl || '/default-workout.jpg'}
                     alt={workout.title}
                     className="w-full h-full object-cover"
                 />
-                {/* Black overlay */}
+
                 <div className="absolute inset-0 bg-black/50"></div>
-                {/* Centered Title */}
+
                 <h1 className="absolute inset-0 flex items-center justify-center text-4xl md:text-5xl font-bold text-teal-400 drop-shadow-lg text-center px-4">
                     {workout.title}
                 </h1>
             </div>
 
-            {/* Info Section */}
+
             <div className="max-w-4xl mx-auto px-6 py-10">
                 <p className="text-lg text-gray-700 mb-4">{workout.shortDescription}</p>
 

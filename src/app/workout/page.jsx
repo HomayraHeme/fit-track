@@ -40,7 +40,7 @@ export default function WorkoutsPage() {
     }, []);
 
 
-    // Search filter
+
     useEffect(() => {
         if (search.trim() === "") {
             setFilteredWorkouts(workouts);
@@ -59,7 +59,6 @@ export default function WorkoutsPage() {
         <div className="max-w-6xl mx-auto px-6 py-10">
             <h1 className="text-4xl font-bold text-teal-600 mb-6 text-center">All Workouts</h1>
 
-            {/* Search Box */}
             <div className="flex justify-center mb-8 w-full">
                 <input
                     type="text"

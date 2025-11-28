@@ -3,11 +3,11 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
-import { useSession } from "next-auth/react"; // <-- import session
+import { useSession } from "next-auth/react";
 
 export default function AddWorkoutPage() {
     const router = useRouter();
-    const { data: session } = useSession(); // get logged-in user
+    const { data: session } = useSession();
     const [form, setForm] = useState({
         title: "",
         shortDescription: "",
@@ -54,7 +54,7 @@ export default function AddWorkoutPage() {
                 imageUrl: "",
             });
 
-            router.push("/workout/delete"); // redirect to manage workouts
+            router.push("/workout/delete");
         } catch (err) {
             toast.error(err.message);
         } finally {

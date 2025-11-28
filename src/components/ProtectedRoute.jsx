@@ -10,7 +10,7 @@ export default function ProtectedRoute({ children }) {
 
     useEffect(() => {
         if (status === "unauthenticated") {
-            router.push("/login"); // redirect to login if not logged in
+            router.push("/login");
         }
     }, [status, router]);
 
@@ -23,7 +23,7 @@ export default function ProtectedRoute({ children }) {
     }
 
     if (status === "authenticated") {
-        return children; // show the page content if logged in
+        return children;
     }
 
     return null;

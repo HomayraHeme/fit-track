@@ -1,4 +1,3 @@
-// src/components/PopularWorkouts.jsx
 export default function PopularWorkouts() {
     const workouts = [
         {

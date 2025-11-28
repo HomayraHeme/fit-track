@@ -1,4 +1,3 @@
-// File: src/components/WorkoutDetails.jsx
 "use client";
 
 import { useEffect, useState } from "react";

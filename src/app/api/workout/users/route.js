@@ -13,7 +13,7 @@ export async function GET(req) {
         const db = await connectToDB();
         const workouts = await db
             .collection("workout")
-            .find({ userEmail: session.user.email }) // only current user's workouts
+            .find({ userEmail: session.user.email })
             .toArray();
 
         return new Response(JSON.stringify(workouts), { status: 200 });
