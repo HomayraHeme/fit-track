@@ -1,20 +1,44 @@
-"use client";
+ "use client";
 
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Cookies from "js-cookie"; // You'll need to install this: npm install js-cookie
 
 export default function LoginPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const router = useRouter();
 
+    // Mock Credentials
+    const MOCK_EMAIL = "user@exapmle.com";
+    const MOCK_PASSWORD = "123456Uu";
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const result = await signIn("credentials", { redirect: false, email, password });
-        if (result?.ok) router.push("/");
-        else alert(result?.error || "Login failed!");
+
+        // 1. Mock Validation Logic
+        if (email === MOCK_EMAIL && password === MOCK_PASSWORD) {
+            
+            // 2. Store credentials in cookies (Expires in 1 day)
+            Cookies.set("user_email", email, { expires: 1 });
+            
+            // 3. Proceed with Next-Auth sign-in
+            const result = await signIn("credentials", { 
+                redirect: false, 
+                email, 
+                password 
+            });
+
+            if (result?.ok) {
+                router.push("/");
+            } else {
+                alert(result?.error || "Next-Auth integration failed!");
+            }
+        } else {
+            alert("Invalid mock credentials! Use admin@fittrack.com / password123");
+        }
     };
 
     return (
@@ -35,9 +59,25 @@ export default function LoginPage() {
                 <div className="border-t border-gray-200 mb-6"></div>
 
                 <form className="flex flex-col space-y-4" onSubmit={handleSubmit}>
-                    <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required className="border px-4 py-2 rounded-md focus:ring-2 focus:ring-teal-500" />
-                    <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required className="border px-4 py-2 rounded-md focus:ring-2 focus:ring-teal-500" />
-                    <button type="submit" className="bg-teal-500 text-white py-2 rounded-md hover:bg-teal-600">Login</button>
+                    <input 
+                        type="email" 
+                        placeholder="Email (admin@fittrack.com)" 
+                        value={email} 
+                        onChange={(e) => setEmail(e.target.value)} 
+                        required 
+                        className="border px-4 py-2 rounded-md focus:ring-2 focus:ring-teal-500" 
+                    />
+                    <input 
+                        type="password" 
+                        placeholder="Password (password123)" 
+                        value={password} 
+                        onChange={(e) => setPassword(e.target.value)} 
+                        required 
+                        className="border px-4 py-2 rounded-md focus:ring-2 focus:ring-teal-500" 
+                    />
+                    <button type="submit" className="bg-teal-500 text-white py-2 rounded-md hover:bg-teal-600">
+                        Login
+                    </button>
                 </form>
 
                 <p className="text-sm text-gray-500 mt-6 text-center">

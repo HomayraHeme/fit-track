@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 export default function ManageWorkouts() {
     const [workouts, setWorkouts] = useState([]);
@@ -30,22 +31,25 @@ export default function ManageWorkouts() {
         fetchWorkouts();
     }, []);
 
-    const handleDelete = async (id) => {
-        if (!confirm("Are you sure?")) return;
-        try {
-            const res = await fetch(`/api/workout?id=${id}`, { method: "DELETE" });
-            if (res.ok) {
-                alert("Deleted successfully!");
-                setWorkouts(workouts.filter(w => w._id !== id));
-            } else {
-                const data = await res.json();
-                alert(data.error || "Failed to delete workout");
-            }
-        } catch (err) {
-            console.error(err);
-            alert("Something went wrong");
-        }
-    };
+   const handleDelete = async (id) => {
+  // Show a loading toast
+  const loadingToast = toast.loading("Deleting workout...");
+
+  try {
+    const res = await fetch(`/api/workout?id=${id}`, { method: "DELETE" });
+
+    if (res.ok) {
+      toast.success("Workout deleted successfully!", { id: loadingToast });
+      setWorkouts((prev) => prev.filter((w) => w._id !== id));
+    } else {
+      const data = await res.json();
+      toast.error(data.error || "Failed to delete workout", { id: loadingToast });
+    }
+  } catch (err) {
+    console.error(err);
+    toast.error("Something went wrong. Please try again.", { id: loadingToast });
+  }
+};
 
     if (loading) return <p className="text-center mt-10">Loading workouts...</p>;
 

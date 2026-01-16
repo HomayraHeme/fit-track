@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { connectToDB } from "@/lib/mongodb";
-import bcrypt from "bcryptjs"; // এটা লাগবে password hash করার জন্য
+import bcrypt from "bcryptjs";  
 
 export async function POST(req) {
     try {
